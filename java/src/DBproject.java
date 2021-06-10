@@ -366,8 +366,8 @@ public class DBproject{
 			System.out.print("\tEnter Appointment ID: "); //type: int, not null, primary key
 			String appt_id = "'" + in.readLine() + "', ";
 
-			System.out.print("\tEnter Appointment Date (DD/MM/YY): ");//type: date, not null
-			String appt_date = "TO_DATE('" + in.readLine() + "', " + "'DD/MM/YY'), ";
+			System.out.print("\tEnter Appointment Date (MM/DD/YY): ");//type: date, not null
+			String appt_date = "TO_DATE('" + in.readLine() + "', " + "'MM/DD/YY'), ";
 
 			System.out.print("\tEnter Appointment Time Slot (HH:MM-HH:MM): ");//type: varchar(11)
 			String appt_time_slot = "'" + in.readLine() + "', ";
