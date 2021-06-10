@@ -315,7 +315,7 @@ public class DBproject{
 
 			query += doc_id + doc_name + doc_spec + doc_dept_id;
 
-			System.out.println(query);
+			// System.out.println(query);
 
 			esql.executeUpdate(query);
 		}catch(Exception e){
@@ -325,7 +325,7 @@ public class DBproject{
 
 	public static void AddPatient(DBproject esql) {//2
 		try{
-			String query = "";
+			String query = "INSERT INTO Patient VALUES (";
 
 			System.out.print("\tEnter Patient ID: "); //type: int, not null, primary key
 			String patient_id = "'" + in.readLine() + "', ";
@@ -333,8 +333,13 @@ public class DBproject{
 			System.out.print("\tEnter Patient Name: ");//type: varchar(128), not null
 			String patient_name = "'" + in.readLine() + "', ";
 
-			System.out.print("\tEnter Patient Gender: ");//type: _gender,  not null
-			String patient_gender = "'" + in.readLine() + "', ";
+			System.out.print("\tEnter Patient Gender (F|M): ");//type: _gender,  not null
+			String raw_gender = in.readLine();
+			while(raw_gender != "F" || raw_gender != "M"){
+				System.out.print("\t Please enter a valid gender (F|M): ");
+				raw_gender = in.readLine();
+			}
+			String patient_gender = "'" + raw_gender + "', ";
 
 			System.out.print("\tEnter Patient Age: ");//type: int, not null
 			String patient_age = "'" + in.readLine() + "', ";
@@ -343,6 +348,10 @@ public class DBproject{
 			String patient_addr = "'" + in.readLine() + "')";
 
 			String patient_appt_num = "0"; //type: int
+
+			query += patient_id + patient_name + patient_gender + patient_age + patient_addr + patient_appt_num;
+
+			System.out.println(query);
 
 			esql.executeUpdate(query);
 		}catch(Exception e){
