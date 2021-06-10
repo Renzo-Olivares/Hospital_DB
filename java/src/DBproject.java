@@ -366,8 +366,8 @@ public class DBproject{
 			System.out.print("\tEnter Appointment ID: "); //type: int, not null, primary key
 			String appt_id = "'" + in.readLine() + "', ";
 
-			System.out.print("\tEnter Appointment Date (MM/DD/YY): ");//type: date, not null
-			String appt_date = "TO_DATE('" + in.readLine() + "', " + "'MM/DD/YY'), ";
+			System.out.print("\tEnter Appointment Date (MM/DD/YYYY): ");//type: date, not null
+			String appt_date = "TO_DATE('" + in.readLine() + "', " + "'MM/DD/YYYY'), ";
 
 			System.out.print("\tEnter Appointment Time Slot (HH:MM-HH:MM): ");//type: varchar(11)
 			String appt_time_slot = "'" + in.readLine() + "', ";
@@ -411,7 +411,7 @@ public class DBproject{
 			String doc_id = in.readLine();
 			query += doc_id + ") AS temp WHERE temp.appt_id = A.appnt_ID AND A.status = 'AC' OR A.status = 'AV' AND A.adate BETWEEN '";
 
-			System.out.print("\tEnter Date Range (MM/DD/YY-MM/DD/YY): ");
+			System.out.print("\tEnter Date Range (MM/DD/YYYY-MM/DD/YYYY): ");
 			String date_range = in.readLine();
 			String[] date_range_arr = date_range.split("-");
 			query += date_range_arr[0] + "' AND '" + date_range_arr[1] + "'";
