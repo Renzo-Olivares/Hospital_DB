@@ -298,33 +298,89 @@ public class DBproject{
 	}//end readChoice
 
 	public static void AddDoctor(DBproject esql) {//1
+		try{
+			String query = "";
+
+			esql.executeQuery(query);
+		}catch(Exception e){
+			System.err.println (e.getMessage());
+		}
 	}
 
 	public static void AddPatient(DBproject esql) {//2
+		try{
+			String query = "";
+
+			esql.executeQuery(query);
+		}catch(Exception e){
+			System.err.println (e.getMessage());
+		}
 	}
 
 	public static void AddAppointment(DBproject esql) {//3
+		try{
+			String query = "";
+
+			esql.executeQuery(query);
+		}catch(Exception e){
+			System.err.println (e.getMessage());
+		}
 	}
 
 
 	public static void MakeAppointment(DBproject esql) {//4
 		// Given a patient, a doctor and an appointment of the doctor that s/he wants to take, add an appointment to the DB
+		try{
+			String query = "";
+
+			esql.executeQuery(query);
+		}catch(Exception e){
+			System.err.println (e.getMessage());
+		}
 	}
 
 	public static void ListAppointmentsOfDoctor(DBproject esql) {//5
 		// For a doctor ID and a date range, find the list of active and available appointments of the doctor
+		try{
+			String query = "";
+
+			esql.executeQuery(query);
+		}catch(Exception e){
+			System.err.println (e.getMessage());
+		}
 	}
 
 	public static void ListAvailableAppointmentsOfDepartment(DBproject esql) {//6
 		// For a department name and a specific date, find the list of available appointments of the department
+		try{
+			String query = "";
+
+			esql.executeQuery(query);
+		}catch(Exception e){
+			System.err.println (e.getMessage());
+		}
 	}
 
 	public static void ListStatusNumberOfAppointmentsPerDoctor(DBproject esql) {//7
 		// Count number of different types of appointments per doctors and list them in descending order
+		try{
+			String query = "";
+
+			esql.executeQuery(query);
+		}catch(Exception e){
+			System.err.println (e.getMessage());
+		}
 	}
 
 	
 	public static void FindPatientsCountWithStatus(DBproject esql) {//8
 		// Find how many patients per doctor there are with a given status (i.e. PA, AC, AV, WL) and list that number per doctor.
+		try{
+			String query = "";
+
+			esql.executeQuery(query);
+		}catch(Exception e){
+			System.err.println (e.getMessage());
+		}
 	}
 }
