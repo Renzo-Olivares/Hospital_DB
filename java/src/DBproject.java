@@ -416,7 +416,7 @@ public class DBproject{
 			String[] date_range_arr = date_range.split("-");
 			query += date_range_arr[0] + "' AND '" + date_range_arr[1] + "'";
 
-			System.out.println(query);
+			// System.out.println(query);
 
 			esql.executeQuery(query);
 		}catch(Exception e){
