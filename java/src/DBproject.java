@@ -299,9 +299,23 @@ public class DBproject{
 
 	public static void AddDoctor(DBproject esql) {//1
 		try{
-			String query = "";
+			String query = "INSERT INTO Doctor VALUES (";
 
-			esql.executeQuery(query);
+			System.out.print("\tEnter Doctor ID: "); //type: int, not null, primary key
+			String doc_id = "'" + in.readLine() + "'";
+
+			System.out.print("\tEnter Doctor Name: ");//type: varchar(128)
+			String doc_name = "'" + in.readLine() + "'";
+
+			System.out.print("\tEnter Doctor Speciality: ");//type: varchar(24)
+			String doc_spec = "'" + in.readLine() + "'";
+
+			System.out.print("\tEnter Doctor Department ID: ");//type: int, not null, did reference department(dept_id)
+			String doc_dept_id = "'" + in.readLine() + "')";
+
+			query += doc_id + doc_name + doc_spec + doc_dept_id;
+
+			esql.executeUpdate(query);
 		}catch(Exception e){
 			System.err.println (e.getMessage());
 		}
@@ -311,7 +325,24 @@ public class DBproject{
 		try{
 			String query = "";
 
-			esql.executeQuery(query);
+			System.out.print("\tEnter Patient ID: "); //type: int, not null, primary key
+			String patient_id = "'" + in.readLine() + "', ";
+
+			System.out.print("\tEnter Patient Name: ");//type: varchar(128), not null
+			String patient_name = "'" + in.readLine() + "', ";
+
+			System.out.print("\tEnter Patient Gender: ");//type: _gender,  not null
+			String patient_gender = "'" + in.readLine() + "', ";
+
+			System.out.print("\tEnter Patient Age: ");//type: int, not null
+			String patient_age = "'" + in.readLine() + "', ";
+
+			System.out.print("\tEnter Patient Address: ");//type: varchar(256)
+			String patient_addr = "'" + in.readLine() + "')";
+
+			String patient_appt_num = 0; //type: int
+
+			esql.executeUpdate(query);
 		}catch(Exception e){
 			System.err.println (e.getMessage());
 		}
@@ -321,7 +352,19 @@ public class DBproject{
 		try{
 			String query = "";
 
-			esql.executeQuery(query);
+			System.out.print("\tEnter Appointment ID: "); //type: int, not null, primary key
+			String appt_id = "'" + in.readLine() + "', ";
+
+			System.out.print("\tEnter Appointment Date: ");//type: data, not null
+			String appt_date = "'" + in.readLine() + "', ";
+
+			System.out.print("\tEnter Appointment Time Slot: ");//type: varchar(11)
+			String appt_time_slot = "'" + in.readLine() + "', ";
+
+			System.out.print("\tEnter Appointment Status: ");//type: _status
+			String appt_status = "'" + in.readLine() + "')";
+
+			esql.executeUpdate(query);
 		}catch(Exception e){
 			System.err.println (e.getMessage());
 		}
