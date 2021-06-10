@@ -335,7 +335,7 @@ public class DBproject{
 
 			System.out.print("\tEnter Patient Gender (F|M): ");//type: _gender,  not null
 			String raw_gender = in.readLine();
-			while(!raw_gender.equals("F") || !raw_gender.equals("M")){
+			while(!raw_gender.equals("F") && !raw_gender.equals("M")){
 				System.out.print("\tPlease enter a valid gender (F|M): ");
 				raw_gender = in.readLine();
 			}
