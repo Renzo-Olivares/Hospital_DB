@@ -340,7 +340,7 @@ public class DBproject{
 			System.out.print("\tEnter Patient Address: ");//type: varchar(256)
 			String patient_addr = "'" + in.readLine() + "')";
 
-			String patient_appt_num = 0; //type: int
+			String patient_appt_num = "0"; //type: int
 
 			esql.executeUpdate(query);
 		}catch(Exception e){
