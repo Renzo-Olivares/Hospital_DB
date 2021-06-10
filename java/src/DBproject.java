@@ -378,7 +378,7 @@ public class DBproject{
 				System.out.print("\tPlease enter a valid appointment status (PA|AC|AV|WL): ");
 				raw_status = in.readLine();
 			}
-			String appt_status = "'" + raw_status) + "')";
+			String appt_status = "'" + raw_status + "')";
 
 			query += appt_id + appt_date + appt_time_slot + appt_status;
 
