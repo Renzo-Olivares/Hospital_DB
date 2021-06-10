@@ -347,7 +347,7 @@ public class DBproject{
 			System.out.print("\tEnter Patient Address: ");//type: varchar(256)
 			String patient_addr = "'" + in.readLine() + "', ";
 
-			String patient_appt_num = "'0')"; //type: int
+			String patient_appt_num = "'0')"; //type: int, assumption: this is a new patient with 0 appointments initially
 
 			query += patient_id + patient_name + patient_gender + patient_age + patient_addr + patient_appt_num;
 
