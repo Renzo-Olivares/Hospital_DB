@@ -369,12 +369,12 @@ public class DBproject{
 			System.out.print("\tEnter Appointment Date (DD/MM/YY): ");//type: date, not null
 			String appt_date = "TO_DATE('" + in.readLine() + "', " + "'DD/MM/YY'), ";
 
-			System.out.print("\tEnter Appointment Time Slot: ");//type: varchar(11)
+			System.out.print("\tEnter Appointment Time Slot (HH:MM-HH:MM): ");//type: varchar(11)
 			String appt_time_slot = "'" + in.readLine() + "', ";
 
 			System.out.print("\tEnter Appointment Status (PA|AC|AV|WL): ");//type: _status
 			String raw_status = in.readLine();
-			while(!(raw_status.equals("PA") && raw_status.equals("AC") && raw_status.equals("AV") && raw_status.equals("WL"))){
+			while(!raw_status.equals("PA") && !raw_status.equals("AC") && !raw_status.equals("AV") && !raw_status.equals("WL")){
 				System.out.print("\tPlease enter a valid appointment status (PA|AC|AV|WL): ");
 				raw_status = in.readLine();
 			}
