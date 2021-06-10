@@ -345,9 +345,9 @@ public class DBproject{
 			String patient_age = "'" + in.readLine() + "', ";
 
 			System.out.print("\tEnter Patient Address: ");//type: varchar(256)
-			String patient_addr = "'" + in.readLine() + "')";
+			String patient_addr = "'" + in.readLine() + "', ";
 
-			String patient_appt_num = "0"; //type: int
+			String patient_appt_num = "'0')"; //type: int
 
 			query += patient_id + patient_name + patient_gender + patient_age + patient_addr + patient_appt_num;
 
