@@ -361,19 +361,28 @@ public class DBproject{
 
 	public static void AddAppointment(DBproject esql) {//3
 		try{
-			String query = "";
+			String query = "INSERT INTO Appointment VALUES (";
 
 			System.out.print("\tEnter Appointment ID: "); //type: int, not null, primary key
 			String appt_id = "'" + in.readLine() + "', ";
 
-			System.out.print("\tEnter Appointment Date: ");//type: data, not null
-			String appt_date = "'" + in.readLine() + "', ";
+			System.out.print("\tEnter Appointment Date (DD/MM/YY): ");//type: date, not null
+			String appt_date = "TO_DATE('" + in.readLine() + "', " + "'DD/MM/YY'), ";
 
 			System.out.print("\tEnter Appointment Time Slot: ");//type: varchar(11)
 			String appt_time_slot = "'" + in.readLine() + "', ";
 
-			System.out.print("\tEnter Appointment Status: ");//type: _status
-			String appt_status = "'" + in.readLine() + "')";
+			System.out.print("\tEnter Appointment Status (PA|AC|AV|WL): ");//type: _status
+			String raw_status = in.readLine();
+			while(!(raw_status.equals("PA") && raw_status.equals("AC") && raw_status.equals("AV") && raw_status.equals("WL"))){
+				System.out.print("\tPlease enter a valid appointment status (PA|AC|AV|WL): ");
+				raw_status = in.readLine();
+			}
+			String appt_status = "'" + raw_status) + "')";
+
+			query += appt_id + appt_date + appt_time_slot + appt_status;
+
+			System.out.println(query);
 
 			esql.executeUpdate(query);
 		}catch(Exception e){
