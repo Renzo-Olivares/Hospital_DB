@@ -351,7 +351,7 @@ public class DBproject{
 
 			query += patient_id + patient_name + patient_gender + patient_age + patient_addr + patient_appt_num;
 
-			System.out.println(query);
+			// System.out.println(query);
 
 			esql.executeUpdate(query);
 		}catch(Exception e){
@@ -382,7 +382,7 @@ public class DBproject{
 
 			query += appt_id + appt_date + appt_time_slot + appt_status;
 
-			System.out.println(query);
+			// System.out.println(query);
 
 			esql.executeUpdate(query);
 		}catch(Exception e){
@@ -406,6 +406,12 @@ public class DBproject{
 		// For a doctor ID and a date range, find the list of active and available appointments of the doctor
 		try{
 			String query = "";
+
+			System.out.print("\tEnter Doctor ID: ");
+			String doc_id = in.readLine();
+
+			System.out.print("\tEnter Date Range: ");
+			String date_range = in.readLine();
 
 			esql.executeQuery(query);
 		}catch(Exception e){
