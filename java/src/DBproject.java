@@ -413,7 +413,7 @@ public class DBproject{
 
 			System.out.print("\tEnter Date Range (MM/DD/YY-MM/DD/YY): ");
 			String date_range = in.readLine();
-			String[] date_range_arr = date_range.split('-');
+			String[] date_range_arr = date_range.split("-");
 			query += date_range_arr[0] + "' AND '" + date_range_arr[1] + "'";
 
 			System.out.println(query);
