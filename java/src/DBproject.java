@@ -302,13 +302,13 @@ public class DBproject{
 			String query = "INSERT INTO Doctor VALUES (";
 
 			System.out.print("\tEnter Doctor ID: "); //type: int, not null, primary key
-			String doc_id = "'" + in.readLine() + "'";
+			String doc_id = "'" + in.readLine() + "', ";
 
 			System.out.print("\tEnter Doctor Name: ");//type: varchar(128)
-			String doc_name = "'" + in.readLine() + "'";
+			String doc_name = "'" + in.readLine() + "', ";
 
 			System.out.print("\tEnter Doctor Speciality: ");//type: varchar(24)
-			String doc_spec = "'" + in.readLine() + "'";
+			String doc_spec = "'" + in.readLine() + "', ";
 
 			System.out.print("\tEnter Doctor Department ID: ");//type: int, not null, did reference department(dept_id)
 			String doc_dept_id = "'" + in.readLine() + "')";
