@@ -10,3 +10,7 @@ AND A.adate BETWEEN '' AND ''
 -- find department id
 -- find doctors associated with department id
 -- find list of available appointments under the doctors we just found
+
+-- Count number of different types of appointments per doctors and list them in descending order
+
+-- Find how many patients per doctor there are with a given status (i.e. PA, AC, AV, WL) and list that number per doctor.
