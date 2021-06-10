@@ -315,6 +315,8 @@ public class DBproject{
 
 			query += doc_id + doc_name + doc_spec + doc_dept_id;
 
+			System.out.print(query);
+
 			esql.executeUpdate(query);
 		}catch(Exception e){
 			System.err.println (e.getMessage());
