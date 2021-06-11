@@ -14,3 +14,10 @@ AND A.adate BETWEEN '' AND ''
 -- Count number of different types of appointments per doctors and list them in descending order
 
 -- Find how many patients per doctor there are with a given status (i.e. PA, AC, AV, WL) and list that number per doctor.
+SELECT * 
+FROM Appointment A, (SELECT * 
+FROM has_appointment H, (SELECT D.doctor_ID 
+FROM Doctor D, (SELECT dept_ID FROM Department 
+WHERE name = Allergy and Immunology) AS temp 
+WHERE temp.dept_ID = D.did) AS temp2) AS temp3 
+WHERE temp3.appt_id = A.appnt_ID AND A.status = 'AV' AND A.adate = 01/13/2020
