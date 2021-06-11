@@ -418,7 +418,7 @@ public class DBproject{
 
 			// System.out.println(query);
 
-			esql.executeQuery(query);
+			esql.executeQueryAndPrintResult(query);
 		}catch(Exception e){
 			System.err.println (e.getMessage());
 		}
@@ -444,7 +444,7 @@ public class DBproject{
 
 			System.out.println(query);
 
-			esql.executeQuery(query);
+			esql.executeQueryAndPrintResult(query);
 		}catch(Exception e){
 			System.err.println (e.getMessage());
 		}
