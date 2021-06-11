@@ -438,7 +438,7 @@ public class DBproject{
 			System.out.print("\tEnter Date (MM/DD/YYYY): ");
 			String sel_date = in.readLine();
 
-			String dept_ids = "(SELECT dept_ID FROM Department WHERE name = " + dept_name + ") AS temp";
+			String dept_ids = "(SELECT dept_ID FROM Department WHERE name = " + dept_name + ") AS temp ";
 
 			query += dept_ids + "WHERE temp.dept_ID = D.did) AS temp2) AS temp3 WHERE temp3.appt_id = A.appnt_ID AND A.status = 'AV' AND A.adate = " + sel_date;
 
