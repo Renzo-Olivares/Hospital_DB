@@ -426,8 +426,23 @@ public class DBproject{
 
 	public static void ListAvailableAppointmentsOfDepartment(DBproject esql) {//6
 		// For a department name and a specific date, find the list of available appointments of the department
+// -- find department id's
+// -- find doctors associated with department id's
+// -- find list of available appointments under the doctors we just found
 		try{
-			String query = "";
+			String query = "SELECT * FROM Appointment A, (SELECT * FROM has_appointment H, (SELECT D.doctor_ID FROM Doctors D, ";
+
+			System.out.print("\tEnter Department Name: ");
+			String dept_name = in.readLine();
+
+			System.out.print("\tEnter Date (MM/DD/YYYY): ");
+			String sel_date = in.readLine();
+
+			String dept_ids = "(SELECT dept_ID FROM Department WHERE name = " + dept_name + ") AS temp";
+
+			query += dept_ids + "WHERE temp.dept_ID = D.did) AS temp2) AS temp3 WHERE temp3.appt_id = A.appnt_ID AND A.status = 'AV' AND A.adate = " + sel_date;
+
+			System.out.println(query);
 
 			esql.executeQuery(query);
 		}catch(Exception e){
