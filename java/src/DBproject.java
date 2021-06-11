@@ -430,7 +430,7 @@ public class DBproject{
 // -- find doctors associated with department id's
 // -- find list of available appointments under the doctors we just found
 		try{
-			String query = "SELECT * FROM Appointment A, (SELECT * FROM has_appointment H, (SELECT D.doctor_ID FROM Doctors D, ";
+			String query = "SELECT * FROM Appointment A, (SELECT * FROM has_appointment H, (SELECT D.doctor_ID FROM Doctor D, ";
 
 			System.out.print("\tEnter Department Name: ");
 			String dept_name = in.readLine();
