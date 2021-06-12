@@ -361,6 +361,14 @@ public class DBproject{
 
 	public static void AddAppointment(DBproject esql) {//3
 		try{
+			String max_appt_id_query = "SELECT MAX(A.appnt_ID) FROM Appointment A";
+			List<List<String>> max_appt_id = esql.executeQueryAndReturnResult(max_appt_id_query);
+			for(List<String> a: max_appt_id){
+				for(String b: a){
+					System.out.println(b);
+				}
+			}
+
 			String query = "INSERT INTO Appointment VALUES (";
 
 			System.out.print("\tEnter Appointment ID: "); //type: int, not null, primary key
