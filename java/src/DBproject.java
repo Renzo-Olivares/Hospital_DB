@@ -299,10 +299,19 @@ public class DBproject{
 
 	public static void AddDoctor(DBproject esql) {//1
 		try{
+			String max_doc_id_query = "SELECT MAX(D.doctor_ID) FROM Doctor D";
+			List<List<String>> max_doc_id = esql.executeQueryAndReturnResult(max_doc_id_query);
+			int max_id = 0;
+			for(List<String> a: max_doc_id){
+				for(String b: a){
+					max_id = Integer.parseInt(b) + 1;
+				}
+			}
+
 			String query = "INSERT INTO Doctor VALUES (";
 
-			System.out.print("\tEnter Doctor ID: "); //type: int, not null, primary key
-			String doc_id = "'" + in.readLine() + "', ";
+			// System.out.print("\tEnter Doctor ID: "); //type: int, not null, primary key
+			String doc_id = "'" + Integer.toString(max_id) + "', ";
 
 			System.out.print("\tEnter Doctor Name: ");//type: varchar(128)
 			String doc_name = "'" + in.readLine() + "', ";
