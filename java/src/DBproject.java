@@ -363,16 +363,17 @@ public class DBproject{
 		try{
 			String max_appt_id_query = "SELECT MAX(A.appnt_ID) FROM Appointment A";
 			List<List<String>> max_appt_id = esql.executeQueryAndReturnResult(max_appt_id_query);
+			int max_id = 0;
 			for(List<String> a: max_appt_id){
 				for(String b: a){
-					System.out.println(b);
+					max_id = Integer.parseInt(b) + 1;
 				}
 			}
 
 			String query = "INSERT INTO Appointment VALUES (";
 
 			System.out.print("\tEnter Appointment ID: "); //type: int, not null, primary key
-			String appt_id = "'" + in.readLine() + "', ";
+			String appt_id = "'" + max_id.toString() + "', ";
 
 			System.out.print("\tEnter Appointment Date (MM/DD/YYYY): ");//type: date, not null
 			String appt_date = "TO_DATE('" + in.readLine() + "', " + "'MM/DD/YYYY'), ";
@@ -390,7 +391,7 @@ public class DBproject{
 
 			query += appt_id + appt_date + appt_time_slot + appt_status;
 
-			// System.out.println(query);
+			System.out.println(query);
 
 			esql.executeUpdate(query);
 		}catch(Exception e){
