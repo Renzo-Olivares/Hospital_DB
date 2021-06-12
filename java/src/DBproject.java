@@ -430,7 +430,7 @@ public class DBproject{
 // -- find doctors associated with department id's
 // -- find list of available appointments under the doctors we just found
 		try{
-			String query = "SELECT * FROM Appointment A, (SELECT * FROM has_appointment H, (SELECT D.doctor_ID FROM Doctor D, ";
+			String query = "SELECT DISTINCT * FROM Appointment A, (SELECT H.appt_id, H.doctor_id FROM has_appointment H, (SELECT D.doctor_ID FROM Doctor D, ";
 
 			System.out.print("\tEnter Department Name: ");
 			String dept_name = in.readLine();
@@ -454,6 +454,13 @@ public class DBproject{
 		// Count number of different types of appointments per doctors and list them in descending order
 		try{
 			String query = "";
+			//SELECT COUNT(a), COUNT(b), COUNT(c), COUNT(d)
+			//doctor_id appointment_id status = PA
+			//doctor_id appoitnment_id status = AC
+			//doctor_id appoitnment_id status = AV
+			//doctor_id appoitnment_id status = WL
+			//WHERE a.doctor_id = b.doctor_id AND b.doctor_id = c.doctor_id AND c.doctor_id = d.doctor_id AND d.doctor_id = a.doctor_id
+
 
 			esql.executeQuery(query);
 		}catch(Exception e){
