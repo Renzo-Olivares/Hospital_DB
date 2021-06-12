@@ -373,7 +373,7 @@ public class DBproject{
 			String query = "INSERT INTO Appointment VALUES (";
 
 			// System.out.print("\tEnter Appointment ID: "); //type: int, not null, primary key
-			String appt_id = "'" + max_id.toString() + "', ";
+			String appt_id = "'" + Integer.toString(max_id) + "', ";
 
 			System.out.print("\tEnter Appointment Date (MM/DD/YYYY): ");//type: date, not null
 			String appt_date = "TO_DATE('" + in.readLine() + "', " + "'MM/DD/YYYY'), ";
