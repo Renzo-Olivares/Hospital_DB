@@ -58,3 +58,13 @@ FROM (SELECT H.doctor_id, COUNT(*) FROM has_appointment H, Appointment A WHERE H
 (SELECT H.doctor_id, COUNT(*) FROM has_appointment H, Appointment A WHERE H.appt_id = A.appnt_ID AND A.status = 'WL' GROUP BY H.doctor_id) AS WL ON AV.doctor_id = WL.doctor_id
 GROUP BY PA.doctor_id, pa.count, ac.count, av.count, wl.count
 ORDER BY PA.doctor_id DESC, pa.count DESC, ac.count DESC, av.count DESC, wl.count DESC;
+
+
+SELECT PA.doctor_id, COALESCE(PA.count,0) AS Past, COALESCE(AC.count,0) AS active, COALESCE(AV.count,0) AS Available, COALESCE(WL.count,0) AS Waitlisted
+FROM (SELECT H.doctor_id, COUNT(*) FROM has_appointment H, Appointment A, searches S WHERE H.appt_id = A.appnt_ID AND A.status = 'PA' AND S.aid = A.appnt_ID GROUP BY H.doctor_id) AS PA LEFT JOIN 
+(SELECT H.doctor_id, COUNT(*) FROM has_appointment H, Appointment A, searches S WHERE H.appt_id = A.appnt_ID AND A.status = 'AC' AND S.aid = A.appnt_ID GROUP BY H.doctor_id) AS AC ON PA.doctor_id = AC.doctor_id LEFT JOIN
+(SELECT H.doctor_id, COUNT(*) FROM has_appointment H, Appointment A, searches S WHERE H.appt_id = A.appnt_ID AND A.status = 'AV' AND S.aid = A.appnt_ID GROUP BY H.doctor_id) AS AV ON AC.doctor_id = AV.doctor_id LEFT JOIN
+(SELECT H.doctor_id, COUNT(*) FROM has_appointment H, Appointment A, searches S WHERE H.appt_id = A.appnt_ID AND A.status = 'WL' AND S.aid = A.appnt_ID GROUP BY H.doctor_id) AS WL ON AV.doctor_id = WL.doctor_id
+GROUP BY PA.doctor_id, pa.count, ac.count, av.count, wl.count
+ORDER BY PA.doctor_id DESC, pa.count DESC, ac.count DESC, av.count DESC, wl.count DESC;
+
