@@ -460,7 +460,7 @@ public class DBproject{
 			//doctor_id appoitnment_id status = AV
 			//doctor_id appoitnment_id status = WL
 			//WHERE a.doctor_id = b.doctor_id AND b.doctor_id = c.doctor_id AND c.doctor_id = d.doctor_id AND d.doctor_id = a.doctor_id
-			esql.executeQuery(query);
+			esql.executeQueryAndPrintResult(query);
 		}catch(Exception e){
 			System.err.println (e.getMessage());
 		}
