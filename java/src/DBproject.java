@@ -492,7 +492,7 @@ public class DBproject{
 		// Find how many patients per doctor there are with a given status (i.e. PA, AC, AV, WL) and list that number per doctor.
 		try{
 			String query = "SELECT PA.doctor_id, COALESCE(PA.count,0) AS Past, COALESCE(AC.count,0) AS active, COALESCE(AV.count,0) AS Available, COALESCE(WL.count,0) AS Waitlisted FROM (SELECT H.doctor_id, COUNT(*) FROM has_appointment H, Appointment A, searches S WHERE H.appt_id = A.appnt_ID AND A.status = 'PA' AND S.aid = A.appnt_ID GROUP BY H.doctor_id) AS PA LEFT JOIN (SELECT H.doctor_id, COUNT(*) FROM has_appointment H, Appointment A, searches S WHERE H.appt_id = A.appnt_ID AND A.status = 'AC' AND S.aid = A.appnt_ID GROUP BY H.doctor_id) AS AC ON PA.doctor_id = AC.doctor_id LEFT JOIN (SELECT H.doctor_id, COUNT(*) FROM has_appointment H, Appointment A, searches S WHERE H.appt_id = A.appnt_ID AND A.status = 'AV' AND S.aid = A.appnt_ID GROUP BY H.doctor_id) AS AV ON AC.doctor_id = AV.doctor_id LEFT JOIN (SELECT H.doctor_id, COUNT(*) FROM has_appointment H, Appointment A, searches S WHERE H.appt_id = A.appnt_ID AND A.status = 'WL' AND S.aid = A.appnt_ID GROUP BY H.doctor_id) AS WL ON AV.doctor_id = WL.doctor_id GROUP BY PA.doctor_id, pa.count, ac.count, av.count, wl.count";
-			esql.executeQuery(query);
+			esql.executeQueryAndPrintResult(query);
 		}catch(Exception e){
 			System.err.println (e.getMessage());
 		}
