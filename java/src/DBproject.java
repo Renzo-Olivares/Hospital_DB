@@ -325,10 +325,19 @@ public class DBproject{
 
 	public static void AddPatient(DBproject esql) {//2
 		try{
+			String max_pat_id_query = "SELECT MAX(P.patient_ID) FROM Patient P";
+			List<List<String>> max_pat_id = esql.executeQueryAndReturnResult(max_pat_id_query);
+			int max_id = 0;
+			for(List<String> a: max_pat_id){
+				for(String b: a){
+					max_id = Integer.parseInt(b) + 1;
+				}
+			}
+
 			String query = "INSERT INTO Patient VALUES (";
 
-			System.out.print("\tEnter Patient ID: "); //type: int, not null, primary key
-			String patient_id = "'" + in.readLine() + "', ";
+			// System.out.print("\tEnter Patient ID: "); //type: int, not null, primary key
+			String patient_id = "'" + Integer.toString(max_id) + "', ";
 
 			System.out.print("\tEnter Patient Name: ");//type: varchar(128), not null
 			String patient_name = "'" + in.readLine() + "', ";
@@ -391,7 +400,7 @@ public class DBproject{
 
 			query += appt_id + appt_date + appt_time_slot + appt_status;
 
-			System.out.println(query);
+			// System.out.println(query);
 
 			esql.executeUpdate(query);
 		}catch(Exception e){
